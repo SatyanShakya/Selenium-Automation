@@ -5,14 +5,17 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 driver = webdriver.Chrome()
 
 #----------------------------- Inputs -------------------------------------------------
+
+
 email ="satyantest56@gmail.com"
 otp ="123456"
 firstname ="John"
 lastname ="Doe"
-password = "Test@123"
+password = "Test@1234"
 confirmpassword = "Test@123"
 send_otp_after = 2
 
@@ -97,8 +100,9 @@ try:
         password_field.click
         password_field.send_keys(password)
         time.sleep(1)
-        password_field.send_keys(Keys.RETURN)
-        time.sleep(2)
+        for _ in range(5):
+            password_field.send_keys(Keys.RETURN)
+            time.sleep(2)
 
 
 #------------------------------- login OTP ---------------------------------    
@@ -108,7 +112,7 @@ try:
         login_otp = WebDriverWait(driver,10).until(
             EC.visibility_of_element_located((By.XPATH, "//input[@data-input-otp='true']"))
         )
-
+        
         login_otp.send_keys(otp)
         time.sleep(send_otp_after)
         login_otp.send_keys(Keys.RETURN)

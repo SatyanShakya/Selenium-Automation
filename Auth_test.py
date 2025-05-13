@@ -11,11 +11,11 @@ driver = webdriver.Chrome()
 #----------------------------- Inputs -------------------------------------------------
 fake = Faker()
 
-email ="satyantest69@gmail.com"
+email ="satyanshakya@gmail.com"
 otp ="123456"
 firstname =fake.first_name()
 lastname =fake.last_name()
-password = "Test@1234"
+password = "Test@123"
 confirmpassword = "Test@123"
 send_otp_after = 2
 
